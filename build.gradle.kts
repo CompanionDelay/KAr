@@ -20,4 +20,7 @@ tasks {
     clean {
         rootProject.buildDir
     }
+    test {
+
+    }
 }
