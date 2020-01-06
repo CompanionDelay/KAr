@@ -3,7 +3,8 @@ version = "0.1.1"
 
 plugins {
     `build-scan`
-    kotlin("jvm") version "1.3.61"
+//    kotlin("jvm") version "1.3.61"
+    id("org.jetbrains.kotlin.jvm") version "1.3.61"
 }
 
 repositories {
@@ -11,7 +12,7 @@ repositories {
 }
 
 dependencies {
-    implementation(kotlin("stdlib", "1.2.31"))
+    implementation(kotlin("stdlib"))
     testImplementation("junit:junit:4.12")
 }
 
