@@ -11,7 +11,7 @@ repositories {
 }
 
 dependencies {
-    implementation(kotlin("stdlib", "1.3.61"))
+    implementation(kotlin("stdlib", "1.2.31"))
     testImplementation("junit:junit:4.12")
 }
 
