@@ -1,25 +1,20 @@
 group = "com.github.companiondelay"
-version = "0.1.0"
+version = "0.1.1"
 
 plugins {
     `build-scan`
-    kotlin("jvm") version "1.3.60"
+    kotlin("jvm") version "1.3.61"
 }
 
 repositories {
     jcenter()
+    maven(url = "https://jitpack.io")
 }
 
 dependencies {
-    implementation(kotlin("stdlib", "1.2.31"))
+    implementation(kotlin("stdlib", "1.3.61"))
     testImplementation("junit:junit:4.12")
-}
-
-buildScan {
-    termsOfServiceUrl = "https://gradle.com/terms-of-service"
-    termsOfServiceAgree = "yes"
-
-    publishAlways()
+    implementation("com.github.CompanionDelay:KAr:$version")
 }
 
 tasks {
