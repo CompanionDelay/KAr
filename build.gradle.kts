@@ -2,9 +2,7 @@ group = "com.github.companiondelay"
 version = "0.1.1"
 
 plugins {
-    `build-scan`
-//    kotlin("jvm") version "1.3.61"
-    id("org.jetbrains.kotlin.jvm") version "1.3.61"
+    kotlin("jvm") version "1.3.61"
 }
 
 repositories {
