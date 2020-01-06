@@ -1,3 +1,5 @@
 package com.github.companiondelay
 
-class KAr
+class KAr {
+    fun libName() = "KAr"
+}
