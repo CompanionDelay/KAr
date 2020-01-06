@@ -21,3 +21,9 @@ buildScan {
 
     publishAlways()
 }
+
+tasks {
+    clean {
+        rootProject.buildDir
+    }
+}
