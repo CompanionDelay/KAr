@@ -8,13 +8,11 @@ plugins {
 
 repositories {
     jcenter()
-    maven(url = "https://jitpack.io")
 }
 
 dependencies {
     implementation(kotlin("stdlib", "1.3.61"))
     testImplementation("junit:junit:4.12")
-    implementation("com.github.CompanionDelay:KAr:$version")
 }
 
 tasks {
