@@ -21,6 +21,7 @@ tasks {
         rootProject.buildDir
     }
     test {
-
+        useJUnit()
+        maxHeapSize = "1G"
     }
 }
