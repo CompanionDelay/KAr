@@ -21,4 +21,7 @@ tasks {
     clean {
         rootProject.buildDir
     }
+    test {
+        testLogging.showExceptions = true
+    }
 }
