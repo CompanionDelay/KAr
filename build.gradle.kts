@@ -11,15 +11,10 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib"))
-    testImplementation("junit:junit:4.12")
 }
 
 tasks {
     clean {
         rootProject.buildDir
-    }
-    test {
-        useJUnit()
-        maxHeapSize = "1G"
     }
 }
