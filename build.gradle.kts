@@ -1,7 +1,8 @@
 group = "com.github.companiondelay"
-version = "0.1.3"
+version = "0.1.4"
 
 plugins {
+    `java-library`
     kotlin("jvm") version "1.3.61"
 }
 
