@@ -1,11 +1,9 @@
 group = "com.github.companiondelay"
-version = "0.1.8"
+version = "0.1.9"
 
 plugins {
-    /*`java-library`
-    id("java")*/
-    kotlin("jvm") version "1.3.61"
     `maven-publish`
+    kotlin("jvm") version "1.3.61"
 }
 
 repositories {
@@ -14,8 +12,6 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib"))
-    testImplementation(kotlin("test"))
-    testImplementation(kotlin("test-junit"))
     testImplementation("junit:junit:4.12")
 }
 
@@ -36,9 +32,4 @@ tasks {
     clean {
         rootProject.buildDir
     }
-    /*test {
-        testLogging.showExceptions = true
-        useJUnit()
-        maxHeapSize = "1G"
-    }*/
 }
