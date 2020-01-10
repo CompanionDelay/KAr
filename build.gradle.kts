@@ -1,5 +1,5 @@
 group = "com.github.companiondelay"
-version = "0.1.7"
+version = "0.1.8"
 
 plugins {
     /*`java-library`
@@ -17,6 +17,19 @@ dependencies {
     testImplementation(kotlin("test"))
     testImplementation(kotlin("test-junit"))
     testImplementation("junit:junit:4.12")
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("default") {
+            from(components["java"])
+        }
+    }
+    repositories {
+        maven {
+            url = uri("$buildDir/repository")
+        }
+    }
 }
 
 tasks {
