@@ -1,5 +1,5 @@
 group = "com.github.companiondelay"
-version = "0.1.5"
+version = "0.1.6"
 
 plugins {
     `java-library`
