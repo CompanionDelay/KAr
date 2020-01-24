@@ -1,5 +1,6 @@
 package com.github.companiondelay
 
+import com.github.companiondelay.core.KAr
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
