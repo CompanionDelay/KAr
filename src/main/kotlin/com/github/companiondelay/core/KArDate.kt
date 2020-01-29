@@ -14,7 +14,7 @@ class KArDate {
     private val grgSumOfDays = arrayOf(intArrayOf(0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334, 365), intArrayOf(0, 31, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335, 366))
     private val hshSumOfDays = arrayOf(intArrayOf(0, 31, 62, 93, 124, 155, 186, 216, 246, 276, 306, 336, 365), intArrayOf(0, 31, 62, 93, 124, 155, 186, 216, 246, 276, 306, 336, 366))
 
-    private var setterEnabled = true
+    private var needsToUpdate = true
 
     internal var epoch: Long = 0
         set(value) {
@@ -24,12 +24,11 @@ class KArDate {
             }
         }
 
-
     internal var shYear: Int = 0
         set(value) {
             if (field != value) {
                 field = value
-                if (setterEnabled) {
+                if (needsToUpdate) {
                     toGregorian(shYear, shMonth, shDay)
                     updateEpoch()
                 }
@@ -40,7 +39,7 @@ class KArDate {
         set(value) {
             if (field != value) {
                 field = value
-                if (setterEnabled) {
+                if (needsToUpdate) {
                     toGregorian(shYear, shMonth, shDay)
                     updateEpoch()
                 }
@@ -51,7 +50,7 @@ class KArDate {
         set(value) {
             if (field != value) {
                 field = value
-                if (setterEnabled) {
+                if (needsToUpdate) {
                     toGregorian(shYear, shMonth, shDay)
                     updateEpoch()
                 }
@@ -62,7 +61,7 @@ class KArDate {
         set(value) {
             if (field != value) {
                 field = value
-                if (setterEnabled) updateEpoch()
+                if (needsToUpdate) updateEpoch()
             }
         }
 
@@ -70,7 +69,7 @@ class KArDate {
         set(value) {
             if (field != value) {
                 field = value
-                if (setterEnabled) updateEpoch()
+                if (needsToUpdate) updateEpoch()
             }
         }
 
@@ -78,7 +77,7 @@ class KArDate {
         set(value) {
             if (field != value) {
                 field = value
-                if (setterEnabled) updateEpoch()
+                if (needsToUpdate) updateEpoch()
             }
         }
 
@@ -86,7 +85,7 @@ class KArDate {
         set(value) {
             if (field != value) {
                 field = value
-                if (setterEnabled) updateEpoch()
+                if (needsToUpdate) updateEpoch()
             }
         }
 
@@ -94,7 +93,7 @@ class KArDate {
         set(value) {
             if (field != value) {
                 field = value
-                if (setterEnabled) updateEpoch()
+                if (needsToUpdate) updateEpoch()
             }
         }
 
@@ -102,7 +101,7 @@ class KArDate {
         set(value) {
             if (field != value) {
                 field = value
-                if (setterEnabled) updateEpoch()
+                if (needsToUpdate) updateEpoch()
             }
         }
 
@@ -110,12 +109,12 @@ class KArDate {
     set(value) {
         if (field != value) {
             field = value
-            if (setterEnabled) updateEpoch()
+            if (needsToUpdate) updateEpoch()
         }
     }
 
     private fun initDate() {
-        setterEnabled = false
+        needsToUpdate = false
 
         val sgYear = Integer.parseInt(SimpleDateFormat("yyyy").format(epoch))
         val sgMonth = Integer.parseInt(SimpleDateFormat("MM").format(epoch))
@@ -129,28 +128,28 @@ class KArDate {
         initGregorian(sgYear, sgMonth, sgDay)
         toHijri(sgYear, sgMonth, sgDay)
 
-        setterEnabled = true
+        needsToUpdate = true
     }
 
     private fun initTime(hour: Int, minute: Int, second: Int, milliSecond: Int) {
-        setterEnabled = false
+        needsToUpdate = false
 
         this.hour = hour
         this.minute = minute
         this.second = second
         this.milliSecond = milliSecond
 
-        setterEnabled = true
+        needsToUpdate = true
     }
 
     private fun initGregorian(sgYear: Int, sgMonth: Int, sgDay: Int) {
-        setterEnabled = false
+        needsToUpdate = false
 
         this.sgYear = sgYear
         this.sgMonth = sgMonth
         this.sgDay = sgDay
 
-        setterEnabled = true
+        needsToUpdate = true
     }
 
     private fun updateEpoch() {
@@ -166,7 +165,7 @@ class KArDate {
     }
 
     private fun toGregorian(shYear: Int, shMonth: Int, shDay: Int) {
-        setterEnabled = false
+        needsToUpdate = false
 
         var sgYear = shYear + 621
         var sgDay = 0
@@ -199,11 +198,11 @@ class KArDate {
         this.sgMonth = sgMonth
         this.sgDay = sgDay
 
-        setterEnabled = true
+        needsToUpdate = true
     }
 
     private fun toHijri(sgYear: Int, sgMonth: Int, sgDay: Int) {
-        setterEnabled = false
+        needsToUpdate = false
 
         var shDay = 0
         var shMonth = 0
@@ -235,7 +234,7 @@ class KArDate {
         this.shMonth = shMonth
         this.shDay = shDay
 
-        setterEnabled = true
+        needsToUpdate = true
     }
 
     private fun sgIsLeap(year: Int): Boolean =
