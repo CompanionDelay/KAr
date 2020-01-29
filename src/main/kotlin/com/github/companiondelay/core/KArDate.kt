@@ -6,7 +6,6 @@ import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.math.abs
-import kotlin.math.floor
 
 
 class KArDate {
@@ -106,12 +105,12 @@ class KArDate {
         }
 
     internal var milliSecond: Int = 0
-    set(value) {
-        if (field != value) {
-            field = value
-            if (needsToUpdate) updateEpoch()
+        set(value) {
+            if (field != value) {
+                field = value
+                if (needsToUpdate) updateEpoch()
+            }
         }
-    }
 
     private fun initDate() {
         needsToUpdate = false
@@ -241,23 +240,23 @@ class KArDate {
             year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)
 
     private fun shIsLeap(year: Int): Boolean {
-        val referenceYear = 1375.0
-        var startYear = 1375.0
+        val referenceYear = 1375
+        var startYear = 1375
         val yearRes = year - referenceYear
         if (yearRes > 0) {
             if (yearRes >= 33) {
                 val numb = yearRes / 33
-                startYear = referenceYear + floor(numb) * 33
+                startYear = referenceYear + numb * 33
             }
         } else {
             startYear = if (yearRes >= -33) {
                 referenceYear - 33
             } else {
                 val numb = abs(yearRes / 33)
-                referenceYear - (floor(numb) + 1) * 33
+                referenceYear - (numb + 1) * 33
             }
         }
-        val leapYears = doubleArrayOf(
+        val leapYears = arrayOf(
                 startYear,
                 startYear + 4,
                 startYear + 8,
@@ -267,7 +266,7 @@ class KArDate {
                 startYear + 28,
                 startYear + 33
         )
-        return Arrays.binarySearch(leapYears, year.toDouble()) >= 0
+        return Arrays.binarySearch(leapYears, year) >= 0
     }
 
 }
